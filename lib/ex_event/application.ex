@@ -15,9 +15,10 @@ defmodule ExEvent.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: ExEvent.PubSub},
       # Start the Endpoint (http/https)
-      ExEventWeb.Endpoint
+      ExEventWeb.Endpoint,
       # Start a worker by calling: ExEvent.Worker.start_link(arg)
       # {ExEvent.Worker, arg}
+      ExEvent.CompositeRouter
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

@@ -10,6 +10,14 @@ import Config
 config :ex_event,
   ecto_repos: [ExEvent.Repo]
 
+config :ex_event, ExEvent.CompositeRouter,
+  snapshotting: %{
+    ExEvent.BankAccount => [
+      snapshot_every: 10,
+      snapshot_version: 1
+    ]
+  }
+
 config :ex_event, event_stores: [ExEvent.EventStore]
 # Configures the endpoint
 config :ex_event, ExEventWeb.Endpoint,
